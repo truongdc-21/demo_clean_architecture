@@ -8,7 +8,7 @@ import kotlin.coroutines.CoroutineContext
 abstract class ContextResult {
 
     protected suspend fun <R> withContextResult(
-        dispatcherContextIO: CoroutineContext = Dispatchers.Main,
+        dispatcherContextIO: CoroutineContext = Dispatchers.IO,
         requestBlock: suspend CoroutineScope.() -> R
     ): DataResult<R> = withContext(dispatcherContextIO) {
         return@withContext try {
